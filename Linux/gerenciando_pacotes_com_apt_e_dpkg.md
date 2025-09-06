@@ -38,6 +38,13 @@ Uma linha de configuração se parece com isso:
 deb http://archive.ubuntu.com/ubuntu jammy main universe
 ```
 
+#### 📖 Desvendando a linha:
+
+  - **`deb`**: O tipo de arquivo. `deb` é para pacotes binários (programas prontos para usar), enquanto `deb-src` seria para o código-fonte.
+  - **`http://archive.ubuntu.com/ubuntu`**: A URL, ou seja, o endereço do servidor onde os pacotes estão armazenados.
+  - **`jammy`**: O codinome da sua versão do sistema (ex: `jammy` para Ubuntu 22.04, `noble` para 24.04). Garante que você baixe pacotes compatíveis.
+  - **`main universe`**: Os componentes (ou seções) do repositório. Eles separam os pacotes por licença e nível de suporte (`main`, `restricted`, `universe`, `multiverse`).
+
 ### **O Formato Moderno: Arquivos `.sources` (deb822)**
 
 Sistemas mais novos usam um formato mais claro e seguro, com a extensão `.sources`. Ele organiza a mesma informação em blocos legíveis.
@@ -50,7 +57,7 @@ Sistemas mais novos usam um formato mais claro e seguro, com a extensão `.sourc
 | `Components` | As seções do repositório (`main`, `universe`)                  |
 | `Signed-By`  | **(Segurança)** Aponta para a chave de autenticação do repositório |
 
-### **💡 Vantagem na Prática:**
+### 💡 **Vantagem na Prática:**
 
 O formato novo é mais organizado e seguro. Um único bloco `.sources` pode substituir várias linhas repetitivas do formato `.list`, evitando erros.
 
@@ -81,10 +88,10 @@ Use PPAs quando precisar de uma versão mais nova de um software específico ou 
 
 Às vezes, você baixa um programa diretamente de um site, na forma de um arquivo `.deb`. O `dpkg` é a ferramenta para instalar esses arquivos.
 
-| Comando                           | O que faz                                           |
-| --------------------------------- | --------------------------------------------------- |
-| `sudo dpkg -i pacote.deb`         | **INSTALAR .DEB** - Instala um arquivo `.deb` local |
-| `sudo apt -f install`             | **CORRIGIR DEPENDÊNCIAS** - "Conserta" a instalação |
+| Comando                     | O que faz                                           |
+| --------------------------- | --------------------------------------------------- |
+| `sudo dpkg -i pacote.deb`   | **INSTALAR .DEB** - Instala um arquivo `.deb` local |
+| `sudo apt -f install`       | **CORRIGIR DEPENDÊNCIAS** - "Conserta" a instalação |
 
 ### **Fluxo de trabalho: Instalando um `.deb` baixado**
 
